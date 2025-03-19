@@ -1,11 +1,11 @@
-function App() {
+import { Playground } from "./components/playground/playground";
+
+const App = () => {
   return (
     <>
-      <h1 className="flex text-3xl font-bold text-red-500 underline">
-        Hello world!
-      </h1>
+      <Playground />
     </>
   );
-}
+};
 
 export default App;
