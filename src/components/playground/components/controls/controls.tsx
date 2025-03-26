@@ -1,3 +1,5 @@
+import { Button } from "../../../../UI";
+import { PlayArrow, Pause } from "@mui/icons-material";
 export interface IControlsProps {
   isTimerActive: boolean;
   setIsTimerActive: React.Dispatch<React.SetStateAction<boolean>>;
@@ -10,20 +12,20 @@ export const Controls = ({
   return (
     <>
       <div className="flex gap-2">
-        <button
-          className="cursor-pointer rounded border border-black px-2 text-2xl disabled:border-gray-400 disabled:text-gray-400"
+        <Button
+          endIcon={<PlayArrow />}
           onClick={() => setIsTimerActive(true)}
           disabled={isTimerActive}
         >
           Start
-        </button>
-        <button
-          className="cursor-pointer rounded border border-black px-2 text-2xl disabled:border-gray-400 disabled:text-gray-400"
+        </Button>
+        <Button
+          endIcon={<Pause />}
           onClick={() => setIsTimerActive(false)}
           disabled={!isTimerActive}
         >
           Stop
-        </button>
+        </Button>
       </div>
     </>
   );

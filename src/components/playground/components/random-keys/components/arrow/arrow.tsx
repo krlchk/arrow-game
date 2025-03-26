@@ -1,6 +1,7 @@
 import { useAppSelector } from "../../../../../../app/hooks";
 import { MAP_ARROW_CODES } from "../../../../constants";
 import { IPlaygroundStepsState } from "../../../../store/types";
+import clsx from "clsx";
 
 export const Arrow = () => {
   const state = useAppSelector((state) => state.playground);
@@ -11,12 +12,18 @@ export const Arrow = () => {
     if (!element.success && element.success !== null) {
       return "bg-red-500";
     }
-    return "bg-gray-500";
+    return "bg-[#8b8b8b]/50";
   };
   return (
-    <>
+    <div className="flex gap-3">
       {state.steps.map((element) => (
-        <span key={element.step} className={getStylesRandomKeys(element)}>
+        <span
+          key={element.step}
+          className={clsx(
+            getStylesRandomKeys(element),
+            "flex h-16 w-16 items-center justify-center rounded-full text-4xl",
+          )}
+        >
           {String(
             MAP_ARROW_CODES[
               element.currentValue as keyof typeof MAP_ARROW_CODES
@@ -24,6 +31,6 @@ export const Arrow = () => {
           ) || "?"}
         </span>
       ))}
-    </>
+    </div>
   );
 };

@@ -7,6 +7,7 @@ import { RandomKeys } from "./components/random-keys";
 import { KeyPressed } from "./components/key-pressed";
 import { Score } from "./components/score";
 import { Modal } from "./components/modal";
+import { Description } from "./components/description";
 
 export const Playground = () => {
   const state = useAppSelector((state) => state.playground);
@@ -54,21 +55,26 @@ export const Playground = () => {
   }, [state.totalSuccessful, state.totalUnsuccessful]);
 
   return (
-    <>
-      {state.currentStep}
-      <Controls
-        isTimerActive={isTimerActive}
-        setIsTimerActive={setIsTimerActive}
-      />
-      <RandomKeys isTimerActive={isTimerActive} />
-      <KeyPressed isTimerActive={isTimerActive} />
-      <Score />
+    <section className="m-10 flex justify-between gap-3">
+      <div className="flex w-1/2 flex-col gap-5 rounded-3xl border border-amber-300 p-7">
+        <RandomKeys isTimerActive={isTimerActive} />
+        <KeyPressed isTimerActive={isTimerActive} />
+        <Score />
+      </div>
+      <div className="flex w-1/2 flex-col gap-5 rounded-3xl border border-amber-300 p-7">
+        <Description />
+        <Controls
+          isTimerActive={isTimerActive}
+          setIsTimerActive={setIsTimerActive}
+        />
+      </div>
+
       {isShowModal && (
         <Modal
           setIsShowModal={setIsShowModal}
           isSuccessedEndGame={isSuccessedEndGame}
         />
       )}
-    </>
+    </section>
   );
 };

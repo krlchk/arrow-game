@@ -3,5 +3,9 @@ interface IResultMessage {
 }
 
 export const ResultMessage = ({ isSuccessedEndGame }: IResultMessage) => {
-  return isSuccessedEndGame ? <span>You win!</span> : <span>You lose(</span>;
+  return isSuccessedEndGame ? (
+    <span className="text-xl">You win!</span>
+  ) : (
+    <span className="text-xl">You lose(</span>
+  );
 };
