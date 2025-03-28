@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { IPlaygroundState } from "./types";
 import { ARR_ARROW_CODES } from "../constants";
 
-const initialState: IPlaygroundState = {
+export const initialState: IPlaygroundState = {
   currentStep: 0,
   steps: [],
   totalSuccessful: 0,

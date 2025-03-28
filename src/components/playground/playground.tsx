@@ -55,7 +55,7 @@ export const Playground = () => {
   }, [state.totalSuccessful, state.totalUnsuccessful]);
 
   return (
-    <section className="m-10 flex justify-between gap-3">
+    <section className="m-auto mx-10 mt-10 flex max-w-[1300px] justify-between gap-3">
       <div className="flex w-1/2 flex-col gap-5 rounded-3xl border border-amber-300 p-7">
         <RandomKeys isTimerActive={isTimerActive} />
         <KeyPressed isTimerActive={isTimerActive} />
